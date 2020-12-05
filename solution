@@ -1,0 +1,28 @@
+  static void Main()
+        {
+            int N = 1041;
+            string NbyteStr = Convert.ToString(N, 2);
+            int gapCount = 0;
+            int bigGap = 0;
+            for (int i = 0; i < NbyteStr.Length; i++)
+            {
+                Console.WriteLine("test=" + NbyteStr[i]);
+                if (NbyteStr[i] == '1')
+                {                 
+                    for (int j = i + 1; j < NbyteStr.Length - i-1; j++)
+                    {
+                        if (NbyteStr[j+1] == '1' && NbyteStr[j ] == '0')
+                        {
+                           
+                            if (bigGap < j- bigGap)
+                            {
+                                bigGap = j;
+                            }
+                            gapCount++;
+                        }
+
+                    }
+                }
+            }
+            Console.WriteLine("test="+ gapCount + "biggapnumber= " + bigGap);
+        }       
